@@ -2,17 +2,13 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         dict_s = {}
         dict_t = {}
-        for i in s:
-            if i not in dict_s:
-                dict_s[i] = 1
-            else:
-                dict_s[i] += 1
-        for i in t:
-            if i not in dict_t:
-                dict_t[i] = 1
-            else:
-                dict_t[i] += 1
-        
+        set_s = set(s)
+        set_t = set(t)
+        for i in set_s:
+            dict_s[i] = s.count(i)
+        for i in set_t:
+            dict_t[i] = t.count(i)
         return dict_s == dict_t
+        
 
 
